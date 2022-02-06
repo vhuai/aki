@@ -20,7 +20,7 @@ $ flask init-db
 
 Use DB Browser for SQLite to browse user database
 ```
-brew cask install db-browser-for-sqlite
+brew install db-browser-for-sqlite
 ```
 
 ## Run on Command Line
