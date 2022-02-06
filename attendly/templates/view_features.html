@@ -14,6 +14,7 @@
               <th>User Name</th>
               <!-- This is cosemetic / for your information-->
               <th>User Features</th>
+              <th>Attendence Time</th>
             </tr>
           </thead>
           <tbody>
@@ -21,6 +22,7 @@
             <tr>
               <td>{{ ea.user_name }}</td>
               <td>{{ ea.features }}</td>
+              <td>{{ ea.time_stamp }}</td>
             </tr>
             {% endfor %}
           </tbody>
