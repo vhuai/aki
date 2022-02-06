@@ -3,6 +3,10 @@
 ## Get Started
 After git clone the project and cd the project directory, follow these one-time steps to setup the development environment.
 ```
+brew install sqlite3
+brew install db-browser-for-sqlite
+brew install curl
+
 $ python3 -m venv venv
 $ . venv/bin/activate
 $ pip install --upgrade pip
@@ -14,12 +18,6 @@ Create the attendly database to store user data
 $ export FLASK_APP=attendly
 $ export FLASK_ENV=development
 $ flask init-db
-```
-
-**Optional Tools**
-Use DB Browser for SQLite to browse user database
-```
-brew install db-browser-for-sqlite
 ```
 
 ## Run on Command Line

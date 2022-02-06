@@ -12,7 +12,8 @@
           <thead>
             <tr>
               <th>User Name</th>
-              <th>Features</th>
+              <!-- This is cosemetic / for your information-->
+              <th>User Features</th>
             </tr>
           </thead>
           <tbody>
@@ -24,6 +25,15 @@
             {% endfor %}
           </tbody>
         </table>
+      </div>
+
+      <div class="align-center">
+        <h3>How Can I Add My Attendence?</h3>
+        <p>Please use the json API, by inserting with <br> curl -X POST http://127.0.0.1:5000/user_features/record -H 'Content-Type: application/json' -d '{"user_name":"[ATTENDENT]", "features": [0, 0, 0]}'</p>
+
+        <p>You can view individual attendence by using <br> http://127.0.0.1:5000/user_features/view?user_name=[ATTENDENT]</p>
+
+        <p>Finally, you can view total attendence by going to <br> http://127.0.0.1:5000/user_features/view </p>
       </div>
     </div>
   </div>

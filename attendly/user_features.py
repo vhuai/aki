@@ -4,20 +4,11 @@ from flask import (
 from attendly.db import get_db
 import json
 
-bp = Blueprint('user', __name__, url_prefix='/user')
+bp = Blueprint('user_features', __name__, url_prefix='/user_features')
 
-@bp.route('/features', methods=('GET', 'POST'))
-def record():
+@bp.route('/view', methods=('GET', 'POST'))
+def view():
   db = get_db()
-  if request.method == 'POST':
-    data = json.loads(request.data)
-    # optional: ensure data has "name" and "features" (float array)
-    db.execute(
-      'INSERT OR REPLACE INTO user_features VALUES (?, ?)',
-      (data["user_name"], str(data['features'])))
-    db.commit()
-    return jsonify(success=True)
-
   name = request.args.get("user_name")
   # GET one user features, return json
   if name is not None:
@@ -33,3 +24,14 @@ def record():
     'SELECT user_name, features FROM user_features'
   ).fetchall()
   return render_template('view_features.html', userfeatures=results)
+
+@bp.route('/record', methods=('PUT', 'POST'))
+def record():
+  db = get_db()
+  data = json.loads(request.data)
+  # optional: ensure data has "name" and "features" (float array)
+  db.execute(
+    'INSERT OR REPLACE INTO user_features VALUES (?, ?)',
+    (data["user_name"], str(data['features'])))
+  db.commit()
+  return jsonify(success=True)
