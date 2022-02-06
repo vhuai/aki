@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}
+    <title>{% profile_name %}</title>
+{% endblock %}
+
+{% block content %}
+    <h2 class="align-center">{% profile_name %} features</h2>
+    <div class="table-wrapper">
+        <table class="alt">
+            <thead>
+                <tr>
+                <!-- This is cosemetic / for your information-->
+                <th>User Features</th>
+                <th>Attendence Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ea in userfeatures %}
+                <tr>
+                    <td>{{ ea.features }}</td>
+                    <td>{{ ea.time_stamp }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

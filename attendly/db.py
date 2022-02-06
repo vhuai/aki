@@ -1,4 +1,6 @@
+from fileinput import filename
 import sqlite3
+import xxlimited
 import click
 from flask import current_app, g
 from flask.cli import with_appcontext
@@ -30,6 +32,27 @@ def init_db_command():
   init_db()
   click.echo('Created the new database.')
 
+@click.command('import-user-features')
+@click.argument('filename')
+@with_appcontext
+def import_user_features_command(filename):
+  """Import user features from a csv file"""
+  with open(filename, 'r') as f:
+    db = get_db()
+    count = 0
+    for line in f.readlines():
+      x = line.split(';')
+      if len(x) != 3:
+        continue
+      db.execute(
+        'INSERT OR REPLACE INTO user_features VALUES (?, ?, ?)',
+        (x[0].strip(), x[1].strip(), x[2].strip()))
+      count += 1
+    if count > 0:
+      db.commit()
+    click.echo("imported %d records" % count)
+
 def init_app(app):
   app.teardown_appcontext(close_db)
   app.cli.add_command(init_db_command)
+  app.cli.add_command(import_user_features_command)
