@@ -3,6 +3,7 @@ import numpy as np
 import face_recognition
 import os
 from datetime import datetime
+# we are using open cv library  
 # from PIL import ImageGrab
  
 path = 'ImagesAttendance'
@@ -13,7 +14,7 @@ print(myList)
 for cl in myList:
     curImg = cv2.imread(f'{path}/{cl}')
     images.append(curImg)
-    classNames.append(os.path.splitext(cl)[0])
+    classNames.append(os.path.splitext(cl)[0]) #split the extension of the images so that we can get only the student name.
 print(classNames)
  
 def findEncodings(images):
@@ -25,7 +26,7 @@ def findEncodings(images):
     return encodeList
  
 def markAttendance(name):
-    with open('Attendance.csv','r+') as f:
+    with open('Attendance.csv','r+') as f:  # to create and write csv files with student names followed by the time of entrance.
         myDataList = f.readlines()
         nameList = []
         for line in myDataList:
@@ -50,7 +51,7 @@ cap = cv2.VideoCapture(0)
 while True:
     success, img = cap.read()
     #img = captureScreen()
-    imgS = cv2.resize(img,(0,0),None,0.25,0.25)
+    imgS = cv2.resize(img,(0,0),None,0.25,0.25) #to reduce the size of our image
     imgS = cv2.cvtColor(imgS, cv2.COLOR_BGR2RGB)
  
     facesCurFrame = face_recognition.face_locations(imgS)
@@ -59,12 +60,12 @@ while True:
     for encodeFace,faceLoc in zip(encodesCurFrame,facesCurFrame):
         matches = face_recognition.compare_faces(encodeListKnown,encodeFace)
         faceDis = face_recognition.face_distance(encodeListKnown,encodeFace)
-        #print(faceDis)
+        #print(faceDis) just to test
         matchIndex = np.argmin(faceDis)
  
-        if matches[matchIndex]:
+        if matches[matchIndex]: #matching with the existing images in database
             name = classNames[matchIndex].upper()
-            #print(name)
+            #print(name) just to test 
             y1,x2,y2,x1 = faceLoc
             y1, x2, y2, x1 = y1*4,x2*4,y2*4,x1*4
             cv2.rectangle(img,(x1,y1),(x2,y2),(0,255,0),2)
