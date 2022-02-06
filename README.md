@@ -2,9 +2,7 @@
 ![image](https://user-images.githubusercontent.com/83354426/152682836-4ce4ed8f-33a8-4fed-a279-3af200531ebe.png)
 
 
-Taking attendance in our regular class takes a long time. Even with newer technologies like RFID, we need to take attendance individually from every student. In this age of Artificial Intelligence, we can make the attendance system much easier where we don't need to spend a single moment to take attendance.
-All details of the students are stored in the cloud. With the Machine learning algorithm, the app detects the faces matches with the data stored in the cloud and then authenticates it.
-Once it authenticates the face it stores the student name with the exact time of attendance. It keeps the record in an excel sheet which will then be converted into a detailed report.
+Every day, hours are wasted taking attendance of students when they enter the class. We identified this problem and decide to find a solution. Aki is a system that leverages the power of Artificial Intelligence and Face Recognition to take attendance of students when they are entering the classroom. We created a web application that receives immediate input from the small cameras in every classroom door, it crosses the information with students' schedules and profiles and creates an accurate report of attendance every single day.
 
 # Development
 ## Get Started
