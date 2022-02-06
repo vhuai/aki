@@ -1,7 +1,7 @@
 # Development
 
 ## Get Started
-After git clone the project and cd the project directory, follow these are one-time steps to setup the development environment.
+After git clone the project and cd the project directory, follow these one-time steps to setup the development environment.
 ```
 $ python3 -m venv venv
 $ . venv/bin/activate
@@ -17,7 +17,6 @@ $ flask init-db
 ```
 
 **Optional Tools**
-
 Use DB Browser for SQLite to browse user database
 ```
 brew install db-browser-for-sqlite
@@ -32,7 +31,6 @@ $ flask run
 ```
 
 ## Highlights
-
 Currently supported use cases
 * Create an attendence record
 * Show a list of all attendence records

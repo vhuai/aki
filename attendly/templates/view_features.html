@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+<section id="four" class="wrapper style3"></section>
+
+<section>
+  <div class="box">
+    <!--do we need this? -->
+    <div class="content">
+      <!--do we need this? -->
+      <h2 class="align-center">User and Face Recognition Features</h2>
+      <div class="table-wrapper">
+        <table class="alt">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Features</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ea in userfeatures %}
+            <tr>
+              <td>{{ ea.user_name }}</td>
+              <td>{{ ea.features }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
