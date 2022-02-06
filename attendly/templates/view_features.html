@@ -29,9 +29,10 @@
         </table>
       </div>
 
-      <div class="align-center">
-        <h3>How Can I Add My Attendence?</h3>
+      <button type="button" class="expand">How Can I Add My Attendence?</button>
+      <div id="collapseable">
         <p>Please use the json API, by inserting with <br> curl -X POST http://127.0.0.1:5000/user_features/record -H 'Content-Type: application/json' -d '{"user_name":"[ATTENDENT]", "features": [0, 0, 0]}'</p>
+        <p>You can also import an attendence csv (format: name,time) by doing <br> flask import-user-features [CSV PATH]</p>
 
         <p>You can view individual attendence by using <br> http://127.0.0.1:5000/user_features/view?user_name=[ATTENDENT]</p>
 
@@ -40,4 +41,21 @@
     </div>
   </div>
 </section>
+
+<script>
+  var coll = document.getElementsByClassName("expand");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
 {% endblock %}
