@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+<section id="four" class="wrapper style3"></section>
+
+<section>
+  <div class="box">
+    <div class="content">
+      <h2 class="align-center">Record Attendence</h2>
+      <hr />
+      <form action="#" method="post">
+        <h3>Attendence Data</h3>
+        <div class="field">
+          <label for="user_name">User Name</label>
+          <input name="user_name" id="patient_name" type="text" placeholder="Name" required="required">
+        </div>
+        <div class="field">
+          <label for="event_loc">Location</label>
+          <input name="event_loc" id="event_loc" type="text" placeholder="Location" required="required">
+        </div>
+        <div class="field">
+          <label for="event_time">Date & Time</label>
+          <input name="event_time" id="event_time" type="text" placeholder="" required="required">
+        </div>
+        <ul class="actions align-center">
+          <li><input value="Submit" class="button special" type="submit"></li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

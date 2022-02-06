@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Attendly</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/static/assets/css/main.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header" class="alt">
+    <div class="logo"><a href="/">Attendly <span>by Team Attendly</span></a></div>
+    <a href="#menu" class="toggle"><span>Menu</span></a>
+  </header>
+
+  <nav id="menu">
+    <ul class="links">
+      <li><a href="/">Home</a></li>
+      <li><a href="{{ url_for('attendence.record') }}">Record Attendence</a></li>
+      <li><a href="{{ url_for('attendence.view') }}">View Attendence</a></li>
+    </ul>
+  </nav>
+
+  {% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %} {% block content %}{% endblock %}
+
+  <!-- Scripts -->
+  <script src="/static/assets/js/jquery.min.js"></script>
+  <script src="/static/assets/js/jquery.scrolly.min.js"></script>
+  <script src="/static/assets/js/jquery.scrollex.min.js"></script>
+  <script src="/static/assets/js/skel.min.js"></script>
+  <script src="/static/assets/js/util.js"></script>
+  <script src="/static/assets/js/main.js"></script>
+
+</body>
+
+</html>

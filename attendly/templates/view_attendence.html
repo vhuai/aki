@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block content %}
+<section id="four" class="wrapper style3"></section>
+
+<section>
+  <div class="box">
+    <!--do we need this? -->
+    <div class="content">
+      <!--do we need this? -->
+      <h2 class="align-center">Attendence Records</h2>
+      <div class="table-wrapper">
+        <table class="alt">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Location</th>
+              <th>Date & Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ea in attendence %}
+            <tr>
+              <td>{{ ea.user_name }}</td>
+              <td>{{ ea.event_loc }}</td>
+              <td>{{ ea.event_time }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="inner">
+        <ul class="actions">
+          <li><a href="{{ url_for('attendence.record') }}" class="button special align-center">Record Attendence</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

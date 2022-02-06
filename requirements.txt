@@ -1,0 +1,6 @@
+flask
+flask_mail
+flask_sqlalchemy
+requests<3,>=2.21.0
+setuptools>=41.0.0
+tqdm
