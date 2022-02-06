@@ -1,4 +1,4 @@
-# Aki is a web application that uses Facial Recognition to make attendance of class with the most accuracy.
+# AKi is a web application connected to a camera system that uses Face Recognition to take attendance of classrooms when students are entering the door. It saves time and is highly accurate.
 ![image](https://user-images.githubusercontent.com/83354426/152682836-4ce4ed8f-33a8-4fed-a279-3af200531ebe.png)
 
 
