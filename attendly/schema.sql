@@ -10,6 +10,6 @@ CREATE TABLE attendence_record (
 
 CREATE TABLE user_features (
   user_name TEXT NOT NULL UNIQUE,
-  features TEXT NOT NULL,  -- sample: [12.3, 23.4, 34.5]
-  time_stamp TEXT
+  features TEXT,  -- sample: [12.3, 23.4, 34.5]
+  time_stamp TEXT NOT NULL
 );

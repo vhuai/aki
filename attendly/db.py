@@ -36,17 +36,17 @@ def init_db_command():
 @click.argument('filename')
 @with_appcontext
 def import_user_features_command(filename):
-  """Import user features from a csv file"""
+  """Import user,timestamp from a csv file"""
   with open(filename, 'r') as f:
     db = get_db()
     count = 0
     for line in f.readlines():
-      x = line.split(';')
-      if len(x) != 3:
+      x = line.split(',')
+      if len(x) != 2:
         continue
       db.execute(
         'INSERT OR REPLACE INTO user_features VALUES (?, ?, ?)',
-        (x[0].strip(), x[1].strip(), x[2].strip()))
+        (x[0].strip(), '[]', x[1].strip()))
       count += 1
     if count > 0:
       db.commit()
